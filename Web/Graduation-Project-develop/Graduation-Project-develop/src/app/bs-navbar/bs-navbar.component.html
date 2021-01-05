@@ -1,0 +1,68 @@
+<nav *ngIf="isLoggedIn$" class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <a class="navbar-brand" routerLink="/">EL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+      
+        
+          <li class="nav-item" *ngIf="userDetails.roleName =='Teacher'">
+              <a class="nav-link" routerLink="/mystudents">My Students</a>
+          </li>
+          <li class="nav-item" *ngIf="userDetails.roleName =='Student'">
+              <a class="nav-link" (click)="practice()">do practice</a>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/classes">My Classes </a>
+          </li>
+         
+         <form class="form-inline my-2 my-lg-0" >
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="classrooms" [(ngModel)]="searchTerms" (ngModelChange)="getByClassroomSearch(searchTerms)" autocomplete="off">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <div class="navbar-search-typeahead">
+            <div class="navbar-search-typeahead-value" *ngFor="let classroom of classrooms">
+              {{classroom.description}}
+            </div>
+          </div>
+      </ul>
+          <ul class="icons">
+              <i class="fas fa-plus-circle fa-2x" placement="bottom" [ngbPopover]="popContent"></i>
+               <ng-template #popContent>      
+                       <a routerLink="material" *ngIf="userDetails.roleName =='Teacher'">Create Task</a> <br />
+                       <a routerLink="announcement" *ngIf="userDetails.roleName =='Teacher'">Create announcement</a><br/>
+                       <a routerLink="classroom" *ngIf="userDetails.roleName =='Teacher'">Create Classroom</a><br/>  
+                       <a routerLink="task" *ngIf="userDetails.roleName =='Teacher'">Student Progress</a><br/>  
+
+                       <a routerLink="score">Score List</a><br/>                     
+                       <a routerLink="joinClass" *ngIf="userDetails.roleName =='Student'">Join a class</a><br/>                     
+                       <a routerLink="submitTask" *ngIf="userDetails.roleName =='Student'">Submit Task</a><br/>                     
+               </ng-template>
+            </ul>
+            <ul *ngIf="userDetails.roleName =='Student'">
+                <i class="fas fa-user fa-lg" placement="bottom" [ngbPopover]="popContents"></i>
+                <ng-template #popContents>
+                  <a routerLink="/stdProfile">Profile</a>
+                </ng-template>
+            </ul>
+         
+           <ul class="icons" *ngIf="userDetails.roleName =='Student'">
+             <app-notification></app-notification>
+           </ul>
+           <ul class="icons" *ngIf="userDetails.roleName =='Teacher'">
+              <app-profiles></app-profiles>
+            </ul>
+           <ul class="icons">
+               <i class="fas fa-sign-out-alt fa-lg" (click)="onLogout()"></i>
+           </ul>
+
+
+     
+    </div>
+  </nav>

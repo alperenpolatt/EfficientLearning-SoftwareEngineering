@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+        <thead>
+                <tr>
+                    <th scope="col"> Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Actions</th>
+                </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let s of service.list">
+                        <td (click)="updateForm(s)">{{s.name}}</td>
+                        <td (click)="updateForm(s)">{{s.surname}}</td>
+                        <td (click)="updateForm(s)">{{s.email}}</td>
+                        <td><button class="btn btn-sm btn-outline-danger"(click)="onDelete(s.id)">Delete</button></td>
+                    </tr>
+        </tbody>     
+    </table>
+   

@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EfLearning.Api</name>
+    </assembly>
+    <members>
+        <member name="M:EfLearning.Api.Controllers.DonePracticeController.GetNotifications">
+            <summary>
+            Reminder for practice
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.DonePracticeController.GetLastPractices">
+            <summary>
+            Bring last 10 done practices which user did before
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.GivenClassroomController.GetClassrooms">
+            <summary>
+            For teacher bring classrooms which teachers have
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.GivenClassroomController.GetStudents(System.Int32)">
+            <summary>
+            bring classrooms with students who take this classroom
+            </summary>
+            <param name="givenClassroomId">GivenClassroomId</param>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.GivenClassroomController.GetOwnCount">
+            <summary>
+            Bring number of classes which the user has (Teacher)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.GivenClassroomController.GetStudentsCount">
+            <summary>
+            Bring number of students which the user has (Teacher)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.MaterialAnswerController.Delete(System.Int32)">
+            <summary>
+            Because one student can answer one time... UserId and materialId is composite keys of
+            MaterialAnswerTable
+            </summary>
+            <param name="materialId">Student's answer of material</param>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.MaterialController.GetMaterials(System.Int32)">
+            <summary>
+            bring materials which classroom has
+            </summary>
+            <param name="givenClassroomId">givenClassroom id</param>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.MaterialController.GetMaterialsAndResults(System.Int32)">
+            <summary>
+            Bring responsible Materials and student's result , point if student submited an answer for material and if teacher gave a point
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.MaterialController.GetCloseMaterialsByDeadline">
+            <summary>
+            Bring Close Material in 5 days...
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.MaterialController.GetFreshMaterials">
+            <summary>
+            Bring created Materials which in last 24 hours...
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.TakenClassroomController.GetClassrooms">
+            <summary>
+            bring classrooms which students have
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.TakenClassroomController.GetJoinedCount">
+            <summary>
+            Bring number of classes which the user joined (student)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.TakenClassroomController.Delete(System.Int32)">
+            <summary>
+            One student joins a classroom one time
+            </summary>
+            <param name="givenClassroomId">student whose id, student who take this classroom </param>
+            <returns></returns>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.UserController.UpdateUser(EfLearning.Api.Resources.User.UserUpdateResource)">
+            <summary>
+            This deletes teacher and student
+            </summary>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            This deletes teacher and student
+            </summary>
+        </member>
+        <member name="M:EfLearning.Api.Controllers.UserController.GetRegisteredStudentsByMonth(System.Int32)">
+            <summary>
+            Bring students who registered the system in terms of last month which is parameter
+            </summary>
+        </member>
+    </members>
+</doc>
